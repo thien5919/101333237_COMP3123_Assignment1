@@ -1,4 +1,6 @@
-const Employeee = require('../model/Employee');
+const Employee = require('../models/employee');
+const express = require('express');
+const router = express.Router();
 
 exports.getAllEmployees = async (req, res) => {
     try{
@@ -16,6 +18,7 @@ exports.createEmployee = async (req, res) => {
         await employee.save();
         res.status(201).json({message: "Employee created successfully!", employee_id: employee._id});
     }catch(err){
+        console.log(err);
         res.status(500).json({status: false, message: err.message});
     }
 };

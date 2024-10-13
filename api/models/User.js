@@ -1,13 +1,12 @@
 let mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-    "id": ObjectId,
-    "username": String,
-    "email": String,
-    "password": String,
-    "created_at": Date,
-    "updated_at": Date
+    "username": {type: String, required: true},
+    "email": {type: String, required: true, unique: true},
+    "password": {type: String, required: true},
+    "created_at": {type: Date, default: Date.now},
+    "updated_at": {type: Date, default: Date.now}
 });
 
 const User = mongoose.model('User', UserSchema);
-MediaSourceHandle.exports = User;
+

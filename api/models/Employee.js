@@ -1,17 +1,16 @@
 let mongoose = require('mongoose');
 
 const EmployeeSchema = new mongoose.Schema({
-    "id": ObjectId,
-    "first_name": String,
-    "last_name": String,
-    "email": String,
-    "position": String,
-    "salary": Number,
-    "date_of_joining": Date,
-    "department": String,
-    "created_at": Date,
-    "updated_at": Date
+    
+    "first_name": {type: String, required: true},
+    "last_name": {type: String, required: true},
+    "email": {type: String, required: true, unique: true},
+    "position": {type: String, required: true},
+    "salary": {type: Number, required: true},
+    "date_of_joining": {type: Date, required: true},
+    "department": {type: String, required: true},
+    "created_at": {type: Date, default: Date.now},
+    "updated_at": {type: Date, default: Date.now}
 });
 
 const Employee = mongoose.model('Employee', EmployeeSchema);
-MediaSourceHandle.exports = Employee;
